@@ -17,5 +17,7 @@ def get_text(file_path):
         return char_dict.get(char, char)
     if len(value) < 4:
         raise Exception("Could not generate a valid plate number")
+    if len(set(value)&set("0123456789")) == 0:
+        return ""
     value = value.strip()
     return charToNumber(value[0]) + charToNumber(value[1]) + value[2:-2] + charToNumber(value[-2]) + charToNumber(value[-1]) 

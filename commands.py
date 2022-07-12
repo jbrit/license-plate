@@ -2,8 +2,8 @@ import click
 import db
 
 def validate_license(license):
-    if len(license) != 8:
-        raise click.BadParameter('License must be 8 characters long')
+    if len(license) != 8 and len(license) != 7:
+        raise click.BadParameter('License must be either 7 or 8 characters long')
     if not license[0:2].isalpha():
         raise click.BadParameter('License must start with two letter')
     if not license[-2:].isalpha(): 
